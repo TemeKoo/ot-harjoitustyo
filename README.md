@@ -1,3 +1,8 @@
-# Tämä on README tiedostoni
+# Ohjelmistotekniikka, harjoitustyö 
 
-Tässä on tekstiä README tiedostooni, osa tekstistä on *kursivoitua*, ja osa siitä on **lihavoitua**. Osa voi myös olla jopa ***molempia!***
+## Tehtävät
+
+### Viikko 1
+
+[gitlog.txt](laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](/laskarit/viikko1/komentorivi.txt)
