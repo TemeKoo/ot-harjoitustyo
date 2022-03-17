@@ -1,0 +1,121 @@
+commit 34e5f0db735f595ac57ca3b316ef86e223337054
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 06:01:57 2022 +0200
+
+    muutettiin tiedostoja
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 5cad48e13ea0ee76108e303d703affb37da16764
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:58:17 2022 +0200
+
+    luotiin tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ed90893c448b2e9d08be7a7666fac7422b08cc21
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:53:18 2022 +0200
+
+    muutettiin eka ja kolmas
+
+ eka.txt    | 24 ------------------------
+ kolmas.txt | 20 ++++++++++++++++++++
+ 2 files changed, 20 insertions(+), 24 deletions(-)
+
+commit 2728b64c500f31bc0e95a261e0a9de63e36bbd76
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:51:09 2022 +0200
+
+    uudelleennimettiin tiedosto.txt to eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit bd2d6e7001aa313a50b972ca4ea48e1107fbdfac
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:49:52 2022 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 23e5625c80a75bfa1b902be861c20b1d82d00cdb
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:47:37 2022 +0200
+
+    poistettiin ja lisättiin tekstiä tiedostoon
+
+ tiedosto.txt | 29 ++++++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
+
+commit 2e9baadb78db31e3b77c2136c3acaa4972bcb893
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Thu Mar 17 05:43:26 2022 +0200
+
+    copy pastettiin tekstiä tiedostoon
+
+ tiedosto.txt | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+commit 0a1747c912d97a77e4242f397800b01a82843a46
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:45:32 2022 +0200
+
+    tehtiin thing.txt kansioon stuff
+
+ stuff/thing.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f9262d9cd36c45e46e577db9690cd6e01e522bba
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:44:21 2022 +0200
+
+    muokattiin kolmas.txt
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit bf891f0d7a910aecea43d58e0f127d7bd104477c
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:43:47 2022 +0200
+
+    muokattiin toinen.txt
+
+ toinen.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 3af168f0273878b976b93ffc51ec809065746b31
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:43:13 2022 +0200
+
+    luotiin kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ae8de253e5f99cb1e593caddb98e4063c618938a
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:40:04 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit b59e8caad2c4d5e041490c6b850c280c72ce76f4
+Author: Teemu Koski <80845642+TemeKoo@users.noreply.github.com>
+Date:   Tue Mar 15 07:38:31 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
