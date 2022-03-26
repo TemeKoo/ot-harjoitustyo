@@ -6,7 +6,7 @@ Sovelluksesta on tarkoitus tulla Tower Defense tyylinen peli, joka on toteutettu
 
 ## Suunnitellut toiminnallisuudet
 
-# Ennen peliä
+### Ennen peliä
 
 - Pelissä on jonkinlainen aloitusnäyttö
   - Pelaaja pystyy valitsemaan tason sekä vaikeusasteen ja aloittamaan pelin
@@ -16,7 +16,7 @@ Sovelluksesta on tarkoitus tulla Tower Defense tyylinen peli, joka on toteutettu
   - Näppäinten toimintojen vaihtaminen
   - Resoluution vaihtaminen
 
-# Pelissä
+### Pelissä
 
 - Pelin tavoite on puolustaa reitin päässä olevaa tukikohtaa, jonka viholliset koittavat tuhota. 
 - Puolustaminen tapahtuu torneilla, joita pelaaja voi rakentaa reitin ulkopuolelle.
