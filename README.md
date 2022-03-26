@@ -9,15 +9,7 @@
 [komentorivi.txt](/laskarit/viikko1/komentorivi.txt)
 
 
+### Viikko 2
 
-
-
-
-
-
-
-
-
-
-
-tämä on muutoksen muutos?
+Tässsä screenshot haarautumakattavuudesta:
+![Screenshot haarautumakattavuudesta](/laskarit/viikko2/coverage_screenshot.png)
