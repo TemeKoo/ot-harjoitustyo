@@ -20,6 +20,7 @@
       Kortti "*" -- "*" SattumaYhteismaa
       MonopoliPeli "1" -- "1" Aloitusruutu
       MonopoliPeli "1" -- "1" Vankila
+      Pelaaja "0..1" -- "*" Katu
       class MonopoliPeli
       class Pelilauta
       class Pelaaja
