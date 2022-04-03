@@ -3,7 +3,7 @@ import os
 
 curdir = os.path.dirname(__file__)
 
-class Tower(pygame.Sprite):
+class Tower(pygame.sprite.Sprite):
     def __init__(self, x: int = 0, y: int = 0):
         super().__init__()
 
