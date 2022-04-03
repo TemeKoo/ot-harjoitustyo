@@ -1,12 +1,17 @@
 import pygame
+from game_objects.tower import Tower
 
 def main():
     pygame.init()
 
     pygame.display.set_caption("test program")
 
-    screen = pygame.display.set_mode((240,180))
-     
+    screen = pygame.display.set_mode((640,480))
+    
+    tower = Tower(300, 220)
+    tower.draw(screen)
+    pygame.display.flip()
+
     running = True
      
     while running:

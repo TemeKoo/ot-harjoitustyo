@@ -1,7 +1,9 @@
 ### Työaikakirjanpito
 
-| Päivä  | Tunnit | Tehtävä                                               |
-| ------ | ------ | ----------------------------------------------------- |
-| 26.03. |   1    | Alustava vaatimusmäärittely ja työaikakirjanpito      |
-| 31.03. |  0.5   | Projektityön alustavia hommia (poetry)                |
-| 02.04. |   2    | Painimista pygamen ja wsl:n kanssa (ei tullut mitään) |
+| Päivä  | Tunnit | Tehtävä                                                |
+| ------ | ------ | ------------------------------------------------------ |
+| 26.03. |   1    | Alustava vaatimusmäärittely ja työaikakirjanpito       |
+| 31.03. |  0.5   | Projektityön alustavia hommia (poetry)                 |
+| 02.04. |   2    | Painimista pygamen ja wsl:n kanssa (ei tullut mitään)  |
+| 03.04. |  0.5   | pygame toimintaan, nyt voi aloittaa tehtävät           |
+| 03.04. |   2    | Viikon 3 tehtäviä (toiminnallisuus, testit, kattavuus) |
