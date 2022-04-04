@@ -7,3 +7,4 @@
 | 02.04. |   2    | Painimista pygamen ja wsl:n kanssa (ei tullut mitään)  |
 | 03.04. |  0.5   | pygame toimintaan, nyt voi aloittaa tehtävät           |
 | 03.04. |   2    | Viikon 3 tehtäviä (toiminnallisuus, testit, kattavuus) |
+| 04.04. |  2.5   | Luokkien lisäämistä, koodin jaottelua, hahmottelua     |
