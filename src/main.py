@@ -1,7 +1,7 @@
 import pygame
 from logic.event_handler import EventHandler
-from objects.tower import Tower
-from objects.field import Field
+from game_objects.tower import Tower
+from game_objects.field import Field
 from helpers.level_loader import LevelLoader
 from render.renderer import Renderer
 
@@ -26,7 +26,7 @@ def main():
 
     all_sprites.add(field)
     for t in towers:
-        all_sprites.add(tower)
+        all_sprites.add(t)
 
     event_handler = EventHandler()
     renderer = Renderer(screen)
