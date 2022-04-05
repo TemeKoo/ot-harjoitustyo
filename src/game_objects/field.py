@@ -2,6 +2,7 @@ import pygame
 import os
 from helpers.level_loader import LevelLoader
 
+
 class Field(pygame.sprite.Sprite):
     def __init__(self, level: int, loader: LevelLoader):
         super().__init__()

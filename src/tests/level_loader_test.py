@@ -2,6 +2,7 @@ import unittest
 
 from helpers.level_loader import LevelLoader
 
+
 class TestLevelLoader(unittest.TestCase):
     def setUp(self):
         self.level_loader = LevelLoader()

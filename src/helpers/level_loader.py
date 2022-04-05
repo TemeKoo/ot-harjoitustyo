@@ -1,8 +1,9 @@
 import json
 import os
 
+
 class LevelLoader():
-    def __init__(self):
+    def __init__(self) -> None:
         curdir = os.path.dirname(__file__)
         json_path = os.path.join(curdir, "..", "assets", "levels.json")
         with open(json_path) as json_file: 

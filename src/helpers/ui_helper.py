@@ -1,0 +1,2 @@
+class UiHelper():
+    pass

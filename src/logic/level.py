@@ -1,6 +1,7 @@
 import pygame
 from game_objects.field import Field
 
+
 class Level():
     pass
 

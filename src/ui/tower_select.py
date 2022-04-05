@@ -1,4 +1,7 @@
 import pygame
+from ui.buttons import TowerButton
+
 
 class TowerSelectScreen():
-    pass
+    def __init__(self) -> None:
+        pass

@@ -9,3 +9,4 @@
 | 03.04. |   2    | Viikon 3 tehtäviä (toiminnallisuus, testit, kattavuus) |
 | 04.04. |  2.5   | Luokkien lisäämistä, koodin jaottelua, hahmottelua     |
 | 04.04. |   1    | Rikoin kaiken                                          |
+| 05.04. |  2.5   | Tornien raahaus ja spawnaus, koodin jaottelua          |
