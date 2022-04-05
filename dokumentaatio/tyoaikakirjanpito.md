@@ -10,3 +10,4 @@
 | 04.04. |  2.5   | Luokkien lisäämistä, koodin jaottelua, hahmottelua     |
 | 04.04. |   1    | Rikoin kaiken                                          |
 | 05.04. |  2.5   | Tornien raahaus ja spawnaus, koodin jaottelua          |
+| 05.04  |  0.25  | Lisättiin invoke taskit                                |
