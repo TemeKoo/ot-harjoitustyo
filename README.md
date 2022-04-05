@@ -1,21 +1,38 @@
 # Ohjelmistotekniikka, harjoitustyö 
 
+Tämä on harjoitustyöni Helsingin Yliopiston kurssille [Ohjelmistotekniikka](https://ohjelmistotekniikka-hy.github.io/).
+
+# Tower Defense peli (nimi ei lopullinen)
+
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](dokumentaatio/tyoaikakirjanpito.md)
 
-## Tehtävät
+[Changelog](dokumentaatio/changelog.md)
 
-### Viikko 1
+## Asennus
 
-[gitlog.txt](laskarit/viikko1/gitlog.txt)
+1. Asenna Poetry: https://python-poetry.org/
+2. Kloonaa repositorio omalle koneellesi
+3. Asenna projektin riippuvuudet Poetryllä komennolla:
+```
+poetry install
+```
 
-[komentorivi.txt](/laskarit/viikko1/komentorivi.txt)
+## Komennot
 
-
-### Viikko 2
-
-Tässsä screenshot haarautumakattavuudesta:
-![Screenshot haarautumakattavuudesta](/laskarit/viikko2/coverage_screenshot.png)
+Aja ohjelma:
+```
+poetry run invoke start
+```
+Suorita testit:
+```
+poetry run invoke test
+```
+Luo testikattavuusraportti:
+```
+poetry run invoke coverage-report
+```
