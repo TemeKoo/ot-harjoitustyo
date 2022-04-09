@@ -12,3 +12,4 @@
 | 05.04. |  2.5   | Tornien raahaus ja spawnaus, koodin jaottelua          |
 | 05.04  |  0.25  | Lisättiin invoke taskit                                |
 | 05.04  |  1.5   | Luotiin changelog ja muokattiin readme                 |
+|        | **13.75** | **Yhteensä**                                        |
