@@ -1,4 +1,5 @@
 import pygame
+from game_objects.field import Field
 
 
 class Renderer():
@@ -11,6 +12,7 @@ class Renderer():
     def render(self, scene_data: dict):
         sprites = scene_data["sprites"]
         self.surface.fill((0, 0, 0))
+        self.game_renderer.render(self.surface)
         sprites.draw(self.surface)
         pygame.display.update()
 
@@ -20,6 +22,9 @@ class Renderer():
         scene_type = self.scene_data["scene_type"]
         self.ui_renderer.set_scene(scene)
         if scene_type == "level":
+            field = scene_data["field"]
+            self.game_renderer.set_scene(scene, field)
+        else:
             self.game_renderer.set_scene(scene)
 
     def __update_renderers(self) -> None:
@@ -40,9 +45,14 @@ class GenericRenderer():
         self.width = width
         self.height = height
         self.scene = None
+        self.surface = None
 
     def set_scene(self, scene: str) -> None:
         self.scene = scene
+
+    def render(self, screen: pygame.Surface):
+        if self.surface is not None:
+            screen.blit(self.surface, (0,0))
 
     @property
     def size(self) -> tuple:
@@ -62,3 +72,18 @@ class UiRenderer(GenericRenderer):
 class GameRenderer(GenericRenderer):
     def __init__(self, width: int, height: int) -> None:
         super().__init__(width, height)
+
+    def set_scene(self, scene: str, field: Field = None) -> None:
+        super().set_scene(scene)
+        if field is not None:
+            self.tiles = field.get_tiles()
+            self.width, self.height = field.get_size()
+        self.update_image()
+    
+    def update_image(self):
+        self.surface = pygame.Surface((self.width, self.height))
+        self.tiles.draw(self.surface)
+        self.surface = self.surface.convert()
+
+    def render(self, screen):
+        return super().render(screen)

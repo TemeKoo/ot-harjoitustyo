@@ -26,7 +26,6 @@ def main():
 
     all_sprites = pygame.sprite.Group()
 
-    all_sprites.add(field)
     for t in towers:
         all_sprites.add(t)
 
@@ -37,8 +36,13 @@ def main():
     renderer = Renderer(screen)
 
     scene_data = {
-        "sprites": all_sprites
+        "sprites": all_sprites,
+        "scene": "level_1",
+        "scene_type": "level",
+        "field": field
     }
+
+    renderer.set_scene(scene_data)
 
     clock = pygame.time.Clock()
 

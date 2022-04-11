@@ -1,43 +1,41 @@
-import os
-
 import pygame
 from helpers.level_loader import LevelLoader
+from game_objects.tiles import BuildableTile, PathTile ,BaseTile
 
 
-class Field(pygame.sprite.Sprite):
+class Field():
     def __init__(self, level: int, loader: LevelLoader):
-        super().__init__()
-
         self.level = level
         self.loader = loader
 
         field_data = loader.get_field(self.level)
 
         if field_data:
-            width = len(field_data[0])*20
-            height = len(field_data)*20
-            self.image = pygame.Surface((width, height))
+            self.width = len(field_data[0])*20
+            self.height = len(field_data)*20
 
-            curdir = os.path.dirname(__file__)
-            texture_path = os.path.join(curdir, "..", "assets", "tiles")
+            self.rect = pygame.Rect(0, 0, self.width, self.height)
 
-            buildable_tile = pygame.image.load(os.path.join(texture_path, "buildable.png"))
-            path_tile = pygame.image.load(os.path.join(texture_path, "path.png"))
-            base_tile = pygame.image.load(os.path.join(texture_path, "base.png"))
-
-            textures = {
-                0: buildable_tile,
-                1: path_tile,
-                2: base_tile
-            }
+            self.tiles = pygame.sprite.Group()
 
             for row in range(len(field_data)):
                 for column in range(len(field_data[row])):
-                    self.image.blit(textures[field_data[row][column]], (column*20, row*20))
+                    new_tile = None
+                    new_x = column*20
+                    new_y = row*20
+                    tile_number = field_data[row][column]
+                    if tile_number == 0:
+                        new_tile = BuildableTile(new_x, new_y)
+                    elif tile_number == 1:
+                        new_tile = PathTile(new_x, new_y)
+                    elif tile_number == 2:
+                        new_tile = BaseTile(new_x, new_y)
+                    self.tiles.add(new_tile)
 
-            self.image = self.image.convert()
-            self.rect = self.image.get_rect()
+    def get_tiles(self) -> pygame.sprite.Group:
+        """Returns the tiles of the field."""
+        return self.tiles
 
     def get_size(self) -> tuple:
         """Returns the size of the field in a tuple in the form of (width, height)."""
-        return (self.image.get_width(), self.image.get_height())
+        return (self.width, self.height)
