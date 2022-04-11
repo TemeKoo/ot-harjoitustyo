@@ -14,4 +14,5 @@
 | 05.04. |  1.5   | Luotiin changelog ja muokattiin readme                 |
 | 11.04. |   4    | Pylint, fieldin uudelleen rakentaminen, torni snappaa  |
 | 11.04. |   1    | Koodin korjausta pylintin kanssa                       |
-|        | **18.75** | **Yhteensä**                                        |
+| 11.04. |  1.25  | Lisää testejä                                          |
+|        | **20** | **Yhteensä**                                           |
