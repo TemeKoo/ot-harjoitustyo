@@ -22,26 +22,10 @@ class EventHandler():
                 return False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    self.mouse_down = True
-                    for sprite in sprites:
-                        if isinstance(sprite, Tower) and sprite.rect.collidepoint(event.pos):
-                            tower = sprite
-                            tower.grab(event.pos)
-                            self.dragged_towers.add(tower)
-
-                        if isinstance(sprite, TowerButton) and sprite.rect.collidepoint(event.pos):
-                            button = sprite
-                            new_tower = button.click(event.pos)
-                            sprites_to_add.add(new_tower)
-                            new_tower.grab(event.pos)
-                            self.dragged_towers.add(new_tower)
+                self.mouse_button_down(sprites, sprites_to_add, event)
 
             elif event.type == pygame.MOUSEBUTTONUP:
-                if event.button == 1:
-                    self.mouse_down = False
-                    for tower in self.dragged_towers:
-                        tower.drop()
+                self.mouse_button_up(event)
 
         if self.mouse_down:
             mouse_pos = pygame.mouse.get_pos()
@@ -55,3 +39,25 @@ class EventHandler():
             sprites_to_add.empty()
 
         return True
+
+    def mouse_button_down(self, sprites, sprites_to_add, event):
+        if event.button == 1:
+            self.mouse_down = True
+            for sprite in sprites:
+                if isinstance(sprite, Tower) and sprite.rect.collidepoint(event.pos):
+                    tower = sprite
+                    tower.grab(event.pos)
+                    self.dragged_towers.add(tower)
+
+                if isinstance(sprite, TowerButton) and sprite.rect.collidepoint(event.pos):
+                    button = sprite
+                    new_tower = button.click(event.pos)
+                    sprites_to_add.add(new_tower)
+                    new_tower.grab(event.pos)
+                    self.dragged_towers.add(new_tower)
+
+    def mouse_button_up(self, event):
+        if event.button == 1:
+            self.mouse_down = False
+            for tower in self.dragged_towers:
+                tower.drop()

@@ -1,6 +1,6 @@
-import pygame
 import os
 
+import pygame
 from game_objects.tower import Tower
 
 
@@ -11,19 +11,14 @@ class GenericButton(pygame.sprite.Sprite):
         self.x = x
         self.y = y
 
-    def click(self):
-        pass
-
-    def action(self):
-        pass
-
 
 class TowerButton(GenericButton):
     def __init__(self, x, y):
         super().__init__(x, y)
 
         curdir = os.path.dirname(__file__)
-        self.image: pygame.Surface = pygame.image.load(os.path.join(curdir, "..", "assets", "button.png"))
+        self.image: pygame.Surface = pygame.image.load(
+            os.path.join(curdir, "..", "assets", "button.png"))
 
         self.rect = self.image.get_rect()
 
@@ -37,5 +32,4 @@ class TowerButton(GenericButton):
 
 
 class MenuButton(GenericButton):
-    def __init__(self):
-        super().__init__()
+    pass

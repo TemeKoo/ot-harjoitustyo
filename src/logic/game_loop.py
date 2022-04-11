@@ -1,6 +1,5 @@
 import pygame
 from logic.event_handler import EventHandler
-from logic.level import Level
 from render.renderers import Renderer
 from helpers.level_loader import LevelLoader
 

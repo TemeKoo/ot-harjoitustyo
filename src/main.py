@@ -26,8 +26,8 @@ def main():
 
     all_sprites = pygame.sprite.Group()
 
-    for t in towers:
-        all_sprites.add(t)
+    for twer in towers:
+        all_sprites.add(twer)
 
     button = TowerButton(40, 400)
     all_sprites.add(button)

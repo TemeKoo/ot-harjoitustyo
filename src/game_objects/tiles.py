@@ -6,10 +6,10 @@ import pygame
 class GenericTile(pygame.sprite.Sprite):
     def __init__(self, x, y, img_x, img_y, image_name: str):
         super().__init__()
-        
+
         self.x = x
         self.y = y
-        
+
         curdir = os.path.dirname(__file__)
         image_path = os.path.join(curdir, "..", "assets", "tiles", image_name)
         self.image = pygame.image.load(image_path)
@@ -17,7 +17,7 @@ class GenericTile(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = img_x
         self.rect.y = img_y
-    
+
     def get_pos(self) -> tuple:
         """Returns the field position of the tile"""
         return (self.x, self.y)

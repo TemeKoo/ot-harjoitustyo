@@ -2,7 +2,6 @@ import pygame
 from helpers.level_loader import LevelLoader
 
 from game_objects.tiles import BaseTile, BuildableTile, PathTile
-from game_objects.tower import Tower
 
 
 class Field():
@@ -27,7 +26,8 @@ class Field():
                     new_y = row
                     tile_number = field_data[row][column]
                     if tile_number == 0:
-                        new_tile = BuildableTile(new_x, new_y, new_x*20, new_y*20)
+                        new_tile = BuildableTile(
+                            new_x, new_y, new_x*20, new_y*20)
                     elif tile_number == 1:
                         new_tile = PathTile(new_x, new_y, new_x*20, new_y*20)
                     elif tile_number == 2:
