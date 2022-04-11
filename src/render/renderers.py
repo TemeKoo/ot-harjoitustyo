@@ -77,7 +77,7 @@ class GameRenderer(GenericRenderer):
         super().set_scene(scene)
         if field is not None:
             self.tiles = field.get_tiles()
-            self.width, self.height = field.get_size()
+            self.width, self.height = field.get_image_size()
         self.update_image()
     
     def update_image(self):

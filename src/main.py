@@ -37,6 +37,7 @@ def main():
 
     scene_data = {
         "sprites": all_sprites,
+        "towers": towers,
         "scene": "level_1",
         "scene_type": "level",
         "field": field

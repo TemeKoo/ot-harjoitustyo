@@ -2,14 +2,19 @@ import pygame
 from game_objects.tower import Tower
 from ui.buttons import TowerButton
 
+from logic.tower_placement import TowerPlacer
+
 
 class EventHandler():
     def __init__(self):
+        self.tower_placer = TowerPlacer()
         self.mouse_down = False
         self.dragged_towers = pygame.sprite.Group()
 
     def handle_events(self, scene_data: dict):
         sprites = scene_data["sprites"]
+        field = scene_data["field"]
+        towers = scene_data["towers"]
         sprites_to_add = pygame.sprite.Group()
 
         for event in pygame.event.get():
@@ -40,10 +45,12 @@ class EventHandler():
 
         if self.mouse_down:
             mouse_pos = pygame.mouse.get_pos()
-            sprites.update(mouse_pos=mouse_pos)
+            self.tower_placer.place_towers(towers, field, mouse_pos)
 
         if len(sprites_to_add.sprites()) > 0:
             for sprite in sprites_to_add:
+                if isinstance(sprite, Tower):
+                    scene_data["towers"].add(sprite)
                 scene_data["sprites"].add(sprite)
             sprites_to_add.empty()
 

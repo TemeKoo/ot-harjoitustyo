@@ -25,21 +25,26 @@ class Tower(pygame.sprite.Sprite):
 
     def grab(self, mouse_pos) -> None:
         m_x, m_y = mouse_pos
-        rel_x = self.x - m_x
-        rel_y = self.y - m_y
+        rel_x = self.rect.x - m_x
+        rel_y = self.rect.y - m_y
         self.grabbed_rel = (rel_x, rel_y)
         self.grabbed = True
 
     def drop(self) -> None:
         self.grabbed = False
 
-    def update(self, mouse_pos: tuple) -> None:
+    def update(self, pos: tuple, on_tile: bool, tile_pos: tuple = None) -> None:
         if self.grabbed:
-            m_x, m_y = mouse_pos
-            rel_x, rel_y = self.grabbed_rel
-            x = m_x + rel_x
-            y = m_y + rel_y
-            self.pos = x, y
+            if on_tile:
+                x, y = tile_pos
+                img_x, img_y = pos
+            else:
+                x, y = -1, -1
+                mouse_x, mouse_y = pos
+                rel_x, rel_y = self.grabbed_rel
+                img_x = mouse_x + rel_x
+                img_y = mouse_y + rel_y
+            self.pos = x, y, img_x, img_y
 
     @property
     def pos(self) -> tuple:
@@ -47,11 +52,8 @@ class Tower(pygame.sprite.Sprite):
 
     @pos.setter
     def pos(self, pos) -> None:
-        x, y = pos
+        x, y, img_x, img_y = pos
         self.x = x
         self.y = y
-        self.rect.x = x
-        self.rect.y = y
-
-    def scale_to(self, times):
-        pass
+        self.rect.x = img_x
+        self.rect.y = img_y
