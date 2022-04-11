@@ -1,10 +1,10 @@
 import pygame
-from logic.event_handler import EventHandler
-from game_objects.tower import Tower
-from game_objects.field import Field
-from helpers.level_loader import LevelLoader
-from render.renderers import Renderer
 
+from game_objects.field import Field
+from game_objects.tower import Tower
+from helpers.level_loader import LevelLoader
+from logic.event_handler import EventHandler
+from render.renderers import Renderer
 from ui.buttons import TowerButton
 
 

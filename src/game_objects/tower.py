@@ -1,5 +1,6 @@
-import pygame
 import os
+
+import pygame
 
 
 class Tower(pygame.sprite.Sprite):
@@ -7,7 +8,8 @@ class Tower(pygame.sprite.Sprite):
         super().__init__()
 
         curdir = os.path.dirname(__file__)
-        self.image: pygame.Surface = pygame.image.load(os.path.join(curdir, "..", "assets", "tower.png"))
+        image_path = os.path.join(curdir, "..", "assets", "tower.png")
+        self.image: pygame.Surface = pygame.image.load(image_path)
 
         self.image = self.image.convert()
 

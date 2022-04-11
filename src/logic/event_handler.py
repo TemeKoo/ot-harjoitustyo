@@ -11,12 +11,12 @@ class EventHandler():
     def handle_events(self, scene_data: dict):
         sprites = scene_data["sprites"]
         sprites_to_add = pygame.sprite.Group()
-        
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return False
 
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     self.mouse_down = True
                     for sprite in sprites:

@@ -1,12 +1,13 @@
-import pygame
 import os
+
+import pygame
 from helpers.level_loader import LevelLoader
 
 
 class Field(pygame.sprite.Sprite):
     def __init__(self, level: int, loader: LevelLoader):
         super().__init__()
-        
+
         self.level = level
         self.loader = loader
 
@@ -36,7 +37,7 @@ class Field(pygame.sprite.Sprite):
 
             self.image = self.image.convert()
             self.rect = self.image.get_rect()
-    
+
     def get_size(self) -> tuple:
         """Returns the size of the field in a tuple in the form of (width, height)."""
         return (self.image.get_width(), self.image.get_height())
