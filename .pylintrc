@@ -344,9 +344,6 @@ single-line-class-stmt=no
 # else.
 single-line-if-stmt=no
 
-# Allow these variable names
-good-names=x,y
-
 [SIMILARITIES]
 
 # Ignore comments when computing similarities.
@@ -429,7 +426,9 @@ good-names=i,
            ex,
            Run,
            _,
-           id
+           id,
+           x,
+           y
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
