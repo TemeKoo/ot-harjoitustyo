@@ -13,7 +13,7 @@ def main():
 
     pygame.display.set_caption("game test")
 
-    screen: pygame.Surface = pygame.display.set_mode((640,480))
+    screen: pygame.Surface = pygame.display.set_mode((640, 480))
 
     loader = LevelLoader()
 
