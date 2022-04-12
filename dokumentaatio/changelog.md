@@ -34,3 +34,21 @@ Paljon on koodia, mutta ei vielä paljon toiminnallisuutta
 - Lisättiin tiedostoon `render.renderers` luokat `GenericRenderer`, `UiRenderer`, ja `GameRenderer`, joiden on tarkoitus tulevaisuudessa auttaa pelikentän ja käyttöliittymän piirtämisessä
 
 Saatoin missata jotain, tuli kirjoitettua sen verran koodia
+
+## Viikko 4
+
+Tällä viikolla oli aika kiire, joten ei ehtinyt paljoa tekemään
+
+### Pelissä
+- Tornit toimivat samalla tavalla kuin viime viikollakin, paitsi
+- Kun tornin raahaa pelikentän ruudun päälle, torni "napsahtaa" ruutuun
+
+### Projekti
+- Funktiossa `main` on yhä liikaa tavaraa
+- Lisättiin `pylint` projektiin, ja korjailtiin sen antamia virheitä
+
+### Koodi
+- Muutetiin luokka `game_objects.field.Field` käyttämään tiedostosta `game_objects.tiles` löytyviä `Tile`-olioita, joka helpottaa pelikentän ruutujen erottamisessa toisistaan
+- Lisättiin luokalle `logic.tower_placement.TowerPlacer` toiminnallisuutta. Luokka vastaa nyt tornien sijoittamisesta, ja testaa ovatko ne pelikentän ruutujen päällä
+- Lisättiin luokka `logic.tower_placement.MousePoint`, joka avustaa luokkaa `TowerPlacer` tunnistamaan onko hiiri pelikentän ruudun päällä
+- Siirrettiin pelikentän piirtäminen luokasta `render.renderers.Renderer` luokalle `render.renderers.GameRenderer`, jota `Renderer`-luokka ajaa
