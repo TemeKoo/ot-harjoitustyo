@@ -16,4 +16,5 @@
 | 11.04. |   1    | Koodin korjausta pylintin kanssa                       |
 | 11.04. |  1.25  | Lisää testejä                                          |
 | 12.04. |   1    | Pylint task, ja ongelmien selvittelyä                  |
-|        | **21** | **Yhteensä**                                           |
+| 12.04. |   1    | Arkkitehtuuri ja changelog                             |
+|        | **22** | **Yhteensä**                                           |
