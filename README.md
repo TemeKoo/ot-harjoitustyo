@@ -13,6 +13,8 @@ Tämä on harjoitustyöni Helsingin Yliopiston kurssille [Ohjelmistotekniikka](h
 
 [Changelog](dokumentaatio/changelog.md)
 
+[Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
+
 ## Asennus
 
 1. Asenna Poetry: https://python-poetry.org/
