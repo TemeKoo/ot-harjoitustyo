@@ -15,4 +15,5 @@
 | 11.04. |   4    | Pylint, fieldin uudelleen rakentaminen, torni snappaa  |
 | 11.04. |   1    | Koodin korjausta pylintin kanssa                       |
 | 11.04. |  1.25  | Lisää testejä                                          |
-|        | **20** | **Yhteensä**                                           |
+| 12.04. |   1    | Pylint task, ja ongelmien selvittelyä                  |
+|        | **21** | **Yhteensä**                                           |
