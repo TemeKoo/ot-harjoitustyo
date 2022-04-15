@@ -38,3 +38,7 @@ Luo testikattavuusraportti:
 ```
 poetry run invoke coverage-report
 ```
+Aja pylint:
+```
+poetry run invoke lint
+```
