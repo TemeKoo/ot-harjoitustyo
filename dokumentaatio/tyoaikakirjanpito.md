@@ -17,4 +17,5 @@
 | 11.04. |  1.25  | Lisää testejä                                          |
 | 12.04. |   1    | Pylint task, ja ongelmien selvittelyä                  |
 | 12.04. |   1    | Arkkitehtuuri ja changelog                             |
-|        | **22** | **Yhteensä**                                           |
+| 15.04. |   3    | Pelissä on nyt vihollinen joka liikkuu!                |
+|        | **25** | **Yhteensä**                                           |
