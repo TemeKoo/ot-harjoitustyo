@@ -33,8 +33,8 @@ class Tower(pygame.sprite.Sprite):
     def drop(self) -> None:
         self.grabbed = False
 
-    def update(self, pos: tuple, on_tile: bool, tile_pos: tuple = None) -> None:
-        if self.grabbed:
+    def update(self, pos: tuple = None, on_tile: bool = None, tile_pos: tuple = None) -> None:
+        if pos is not None and self.grabbed:
             if on_tile:
                 x, y = tile_pos
                 img_x, img_y = pos

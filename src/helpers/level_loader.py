@@ -26,3 +26,11 @@ class LevelLoader():
         if level:
             return self._levels_dict[level]["field"]
         return None
+
+    def get_path(self, level: int) -> list:
+        level = self._check_level(level)
+        if level:
+            path = self._levels_dict[level]["path"]
+            path = [(i[0], i[1]) for i in path]
+            return path
+        return None

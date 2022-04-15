@@ -10,11 +10,13 @@ class EventHandler():
         self.tower_placer = TowerPlacer()
         self.mouse_down = False
         self.dragged_towers = pygame.sprite.Group()
+        self.enemy_move_event = pygame.USEREVENT + 1
 
     def handle_events(self, scene_data: dict):
         sprites = scene_data["sprites"]
         field = scene_data["field"]
         towers = scene_data["towers"]
+        enemies = scene_data["enemies"]
         sprites_to_add = pygame.sprite.Group()
 
         for event in pygame.event.get():
@@ -26,6 +28,9 @@ class EventHandler():
 
             elif event.type == pygame.MOUSEBUTTONUP:
                 self.mouse_button_up(event)
+            
+            elif event.type == self.enemy_move_event:
+                enemies.update()
 
         if self.mouse_down:
             mouse_pos = pygame.mouse.get_pos()

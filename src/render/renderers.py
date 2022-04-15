@@ -3,13 +3,13 @@ from game_objects.field import Field
 
 
 class Renderer():
-    def __init__(self, screen: pygame.Surface):
+    def __init__(self, screen: pygame.Surface) -> None:
         self.surface = screen
         self.ui_renderer = UiRenderer(0, 0)
         self.game_renderer = GameRenderer(0, 0)
         self.scene_data = None
 
-    def render(self, scene_data: dict):
+    def render(self, scene_data: dict) -> None:
         sprites = scene_data["sprites"]
         self.surface.fill((0, 0, 0))
         self.game_renderer.render(self.surface)
@@ -50,7 +50,7 @@ class GenericRenderer():
     def set_scene(self, scene: str) -> None:
         self.scene = scene
 
-    def render(self, screen: pygame.Surface):
+    def render(self, screen: pygame.Surface) -> None:
         if self.surface is not None:
             screen.blit(self.surface, (0,0))
 
@@ -80,10 +80,10 @@ class GameRenderer(GenericRenderer):
             self.width, self.height = field.get_image_size()
         self.update_image()
     
-    def update_image(self):
+    def update_image(self) -> None:
         self.surface = pygame.Surface((self.width, self.height))
         self.tiles.draw(self.surface)
         self.surface = self.surface.convert()
 
-    def render(self, screen):
+    def render(self, screen) -> None:
         return super().render(screen)

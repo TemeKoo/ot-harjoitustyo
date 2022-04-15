@@ -22,8 +22,8 @@ class TowerPlacer():
             pos = colliding_tile.get_img_pos()
             on_tile = True
             tile_pos = colliding_tile.get_pos()
-            towers.update(pos, on_tile, tile_pos)
+            towers.update(pos=pos, on_tile=on_tile, tile_pos=tile_pos)
         else:
             pos = mouse_pos
             on_tile = False
-            towers.update(pos, on_tile)
+            towers.update(pos=pos, on_tile=on_tile)
