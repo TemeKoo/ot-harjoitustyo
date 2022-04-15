@@ -1,12 +1,6 @@
 import pygame
 
 from logic.game_loop import GameLoop
-from game_objects.field import Field
-from game_objects.tower import Tower
-from helpers.level_loader import LevelLoader
-from logic.event_handler import EventHandler
-from render.renderers import Renderer
-from ui.buttons import TowerButton
 
 
 def main():
