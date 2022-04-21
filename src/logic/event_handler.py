@@ -1,51 +1,58 @@
 import pygame
 from game_objects.tower import Tower
+from game_objects.field import Field
 from ui.buttons import TowerButton
 
 from logic.tower_placement import TowerPlacer
+from logic.tower_shooting import TowerShooter
+
+TOWER_FIRE = 1
 
 
 class EventHandler():
     def __init__(self):
-        self.tower_placer = TowerPlacer()
         self.mouse_down = False
+
+        self.tower_placer = TowerPlacer()
         self.dragged_towers = pygame.sprite.Group()
-        self.enemy_move_event = pygame.USEREVENT + 1
+        self.sprites_to_add = pygame.sprite.Group()
+
+        self.tower_shooter = TowerShooter()
 
     def handle_events(self, scene_data: dict):
-        sprites = scene_data["sprites"]
-        field = scene_data["field"]
-        towers = scene_data["towers"]
-        enemies = scene_data["enemies"]
-        sprites_to_add = pygame.sprite.Group()
+        sprites: pygame.sprite.Group = scene_data["sprites"]
+        field: Field = scene_data["field"]
+        towers: pygame.sprite.Group = scene_data["towers"]
+        enemies: pygame.sprite.Group = scene_data["enemies"]
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                self.mouse_button_down(sprites, sprites_to_add, event)
+                self.mouse_button_down(sprites, event)
 
             elif event.type == pygame.MOUSEBUTTONUP:
                 self.mouse_button_up(event)
-            
-            elif event.type == self.enemy_move_event:
-                enemies.update()
+
+            elif event.type == pygame.USEREVENT:
+                if event.custom_type == TOWER_FIRE:
+                    self.tower_shooter.fire_tower(event.tower, enemies)
 
         if self.mouse_down:
             mouse_pos = pygame.mouse.get_pos()
             self.tower_placer.place_towers(towers, field, mouse_pos)
 
-        if len(sprites_to_add.sprites()) > 0:
-            for sprite in sprites_to_add:
+        if len(self.sprites_to_add.sprites()) > 0:
+            for sprite in self.sprites_to_add:
                 if isinstance(sprite, Tower):
                     scene_data["towers"].add(sprite)
                 scene_data["sprites"].add(sprite)
-            sprites_to_add.empty()
+            self.sprites_to_add.empty()
 
         return True
 
-    def mouse_button_down(self, sprites, sprites_to_add, event):
+    def mouse_button_down(self, sprites, event):
         if event.button == 1:
             self.mouse_down = True
             for sprite in sprites:
@@ -57,7 +64,7 @@ class EventHandler():
                 if isinstance(sprite, TowerButton) and sprite.rect.collidepoint(event.pos):
                     button = sprite
                     new_tower = button.click(event.pos)
-                    sprites_to_add.add(new_tower)
+                    self.sprites_to_add.add(new_tower)
                     new_tower.grab(event.pos)
                     self.dragged_towers.add(new_tower)
 

@@ -29,10 +29,7 @@ class GameLoop():
             "loader": self.loader
         }
 
-        enemy_path = self.loader.get_path(1)
-        new_enemy = Enemy(enemy_path)
-        self.scene_data["enemies"].add(new_enemy)
-        self.scene_data["sprites"].add(new_enemy)
+        self.spawn_enemy()
 
         new_tower = Tower(300, 220)
         self.scene_data["towers"].add(new_tower)
@@ -40,13 +37,13 @@ class GameLoop():
 
         self.scene_data["sprites"].add(TowerButton(40, 400))
 
-        self.enemy_move_event = pygame.USEREVENT + 1
-
-
     def loop(self):
-        pygame.time.set_timer(self.enemy_move_event, 3000)
         while self.running:
             self.running = self.event_handler.handle_events(self.scene_data)
+            self.scene_data["enemies"].update()
+            self.scene_data["towers"].update(try_fire=True)
+            if len(self.scene_data["enemies"]) == 0:
+                self.spawn_enemy()
             self.renderer.render(self.scene_data)
             self.clock.tick(self.fps)
 
@@ -55,3 +52,9 @@ class GameLoop():
             self.renderer.set_scene(self.scene_data)
             self.running = True
             self.loop()
+    
+    def spawn_enemy(self):
+        enemy_path = self.loader.get_path(1)
+        new_enemy = Enemy(enemy_path)
+        self.scene_data["enemies"].add(new_enemy)
+        self.scene_data["sprites"].add(new_enemy)
