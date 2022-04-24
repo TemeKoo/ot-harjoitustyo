@@ -51,7 +51,7 @@ class Enemy(pygame.sprite.Sprite):
         if self.status["dying"] and self.status["dying_timer"] > 0:
             self.status["dying_timer"] -= 1
 
-        elif self.pos_on_path < len(self.path) - 1:
+        else:
             self.status["move_timer"] += 1
             if self.status["move_timer"] >= 60:
                 self.status["move_timer"] = 0
@@ -78,7 +78,7 @@ class Enemy(pygame.sprite.Sprite):
             self._update_image()
 
     def _move(self) -> None:
-        if not self.status["dying"] and self.status["move_timer"] == 0:
+        if self.status["move_timer"] == 0 and self.pos_on_path < len(self.path) - 1:
             self.pos_on_path += 1
             self._update_pos()
 
