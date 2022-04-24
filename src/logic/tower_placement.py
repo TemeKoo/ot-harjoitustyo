@@ -12,7 +12,8 @@ class MousePoint(pygame.sprite.Sprite):
 class TowerPlacer():
     def place_towers(self, towers: pygame.sprite.Group, field: Field, mouse_pos: tuple):
         mouse_x, mouse_y = mouse_pos
-        colliding_tiles = pygame.sprite.spritecollide(MousePoint(mouse_x, mouse_y), field.get_tiles(), False)
+        colliding_tiles = pygame.sprite.spritecollide(
+            MousePoint(mouse_x, mouse_y), field.get_tiles(), False)
         if len(colliding_tiles) > 0:
             colliding_tile: GenericTile = colliding_tiles[0]
             pos = colliding_tile.get_img_pos()

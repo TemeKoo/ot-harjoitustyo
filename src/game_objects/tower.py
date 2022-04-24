@@ -13,9 +13,11 @@ class Tower(pygame.sprite.Sprite):
 
         curdir = os.path.dirname(__file__)
         image_path = os.path.join(curdir, "..", "assets", "tower.png")
-        firing_image_path = os.path.join(curdir, "..", "assets", "tower_firing.png")
+        firing_image_path = os.path.join(
+            curdir, "..", "assets", "tower_firing.png")
         self.normal_image: pygame.Surface = pygame.image.load(image_path)
-        self.firing_image: pygame.Surface = pygame.image.load(firing_image_path)
+        self.firing_image: pygame.Surface = pygame.image.load(
+            firing_image_path)
 
         self.normal_image = self.normal_image.convert()
         self.firing_image = self.firing_image.convert()
@@ -72,7 +74,8 @@ class Tower(pygame.sprite.Sprite):
             self.timer += 1
             if self.timer >= 30:
                 self.timer = 0
-                pygame.event.post(pygame.event.Event(pygame.USEREVENT, custom_type=TOWER_FIRE, tower=self))
+                pygame.event.post(pygame.event.Event(
+                    pygame.USEREVENT, custom_type=TOWER_FIRE, tower=self))
             if self.fire_timer > 0:
                 self.fire_timer -= 1
                 if self.fire_timer == 0:

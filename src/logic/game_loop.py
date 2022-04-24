@@ -52,7 +52,7 @@ class GameLoop():
             self.renderer.set_scene(self.scene_data)
             self.running = True
             self.loop()
-    
+
     def spawn_enemy(self):
         enemy_path = self.loader.get_path(1)
         new_enemy = Enemy(enemy_path)

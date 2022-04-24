@@ -9,7 +9,10 @@ class Field():
         self.level = level
         self.loader = loader
 
-        field_data = loader.get_field(self.level)
+        self._generate_field()
+
+    def _generate_field(self):
+        field_data = self.loader.get_field(self.level)
 
         if field_data:
             self.width = len(field_data[0])*20
@@ -19,7 +22,7 @@ class Field():
 
             self.tiles = pygame.sprite.Group()
 
-            for row in range(len(field_data)):
+            for row, _ in enumerate(field_data):
                 for column in range(len(field_data[row])):
                     new_tile = None
                     new_x = column
