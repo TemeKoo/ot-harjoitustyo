@@ -19,4 +19,5 @@
 | 12.04. |   1    | Arkkitehtuuri ja changelog                             |
 | 15.04. |   3    | Pelissä on nyt vihollinen joka liikkuu!                |
 | 21.04. |   3    | Tornit nyt ampuu vihollisia ja viholliset kuolee       |
-|        | **28** | **Yhteensä**                                           |
+| 24.04. |   2    | Aaltojen lisäys dataan, pylint virheiden korjailua     |
+|        | **30** | **Yhteensä**                                           |
