@@ -20,4 +20,5 @@
 | 15.04. |   3    | Pelissä on nyt vihollinen joka liikkuu!                |
 | 21.04. |   3    | Tornit nyt ampuu vihollisia ja viholliset kuolee       |
 | 24.04. |   2    | Aaltojen lisäys dataan, pylint virheiden korjailua     |
-|        | **30** | **Yhteensä**                                           |
+| 24.04. |   1    | Bugin korjaus, lisää testejä                           |
+|        | **31** | **Yhteensä**                                           |
