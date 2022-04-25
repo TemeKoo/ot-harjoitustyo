@@ -21,4 +21,5 @@
 | 21.04. |   3    | Tornit nyt ampuu vihollisia ja viholliset kuolee       |
 | 24.04. |   2    | Aaltojen lisäys dataan, pylint virheiden korjailua     |
 | 24.04. |   1    | Bugin korjaus, lisää testejä                           |
-|        | **31** | **Yhteensä**                                           |
+| 25.04. |   3    | Skaalaus toiminnallisuutta jota ei vielä käytetä       |
+|        | **34** | **Yhteensä**                                           |
