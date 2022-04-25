@@ -18,6 +18,12 @@ class GenericTile(pygame.sprite.Sprite):
         self.rect.x = img_x
         self.rect.y = img_y
 
+    def scale(self, side_length: int) -> None:
+        self.image = pygame.transform.scale(self.image, (side_length, side_length))
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x*side_length
+        self.rect.y = self.y*side_length
+
     def get_pos(self) -> tuple:
         """Returns the field position of the tile"""
         return (self.x, self.y)

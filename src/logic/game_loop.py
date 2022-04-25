@@ -16,7 +16,6 @@ class GameLoop():
         self.running = False
 
         self.event_handler = EventHandler()
-        self.renderer = Renderer(screen)
         self.loader = LevelLoader()
 
         self.scene_data = {
@@ -25,9 +24,12 @@ class GameLoop():
             "sprites": pygame.sprite.Group(),
             "towers": pygame.sprite.Group(),
             "enemies": pygame.sprite.Group(),
+            "buttons": pygame.sprite.Group(),
             "field": Field(1, self.loader),
             "loader": self.loader
         }
+
+        self.renderer = Renderer(screen, self.scene_data)
 
         self.spawn_enemy()
 
@@ -35,7 +37,9 @@ class GameLoop():
         self.scene_data["towers"].add(new_tower)
         self.scene_data["sprites"].add(new_tower)
 
-        self.scene_data["sprites"].add(TowerButton(40, 400))
+        button = TowerButton(40, 400)
+        self.scene_data["buttons"].add(button)
+        self.scene_data["sprites"].add(button)
 
     def loop(self):
         while self.running:

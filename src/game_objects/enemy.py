@@ -53,7 +53,7 @@ class Enemy(pygame.sprite.Sprite):
 
         else:
             self.status["move_timer"] += 1
-            if self.status["move_timer"] >= 60:
+            if self.status["move_timer"] >= 75:
                 self.status["move_timer"] = 0
 
         if self.status["hit_timer"] > 0:
@@ -89,7 +89,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.x = self.x*20 + randint(2, 8)
         self.rect.y = self.y*20 + randint(2, 8)
 
-    def __load_images(self):
+    def __load_images(self) -> None:
         curdir = os.path.dirname(__file__)
         image_path = os.path.join(curdir, "..", "assets", "enemy.png")
         hit_image_path = os.path.join(curdir, "..", "assets", "enemy_hit.png")
