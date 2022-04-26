@@ -4,6 +4,9 @@ Tämä on harjoitustyöni Helsingin Yliopiston kurssille [Ohjelmistotekniikka](h
 
 # Tower Defense peli (nimi ei lopullinen)
 
+## Releaset
+
+[Viikko 5](https://github.com/TemeKoo/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio
 
