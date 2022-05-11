@@ -15,11 +15,17 @@ class Renderer():
 
         self.__update_renderers()
 
+        self.text_surface = None
+
     def render(self, scene_data: dict) -> None:
         sprites = scene_data["sprites"]
         self.surface.fill((0, 0, 0))
         self.game_renderer.render(self.surface)
         sprites.draw(self.surface)
+        if self.text_surface is not None:
+            text_x = int((self.width - self.text_surface.get_width()) / 2)
+            text_y = int((self.height - self.text_surface.get_height()) / 2)
+            self.surface.blit(self.text_surface, (text_x, text_y))
         pygame.display.update()
 
     def set_scene(self, scene_data: dict) -> None:
@@ -32,6 +38,11 @@ class Renderer():
             self.game_renderer.set_scene(scene, field)
         else:
             self.game_renderer.set_scene(scene)
+    
+    def set_game_over(self) -> None:
+        pygame.font.init()
+        font = pygame.font.Font(pygame.font.get_default_font(), 50)
+        self.text_surface = font.render("Game over!", False, (255,255,255))
 
     def __update_renderers(self) -> None:
         game_renderer_height = int(self.height*0.75)
@@ -100,11 +111,13 @@ class GameRenderer(GenericRenderer):
     def render(self, screen) -> None:
         towers: pygame.sprite.Group = self.scene_data["towers"]
         enemies: pygame.sprite.Group = self.scene_data["enemies"]
+        base_tile = self.field.get_base_tile()
 
         #towers.draw(self.surface)
         #enemies.draw(self.surface)
 
         self.surface.fill((0, 0, 0))
         self.surface.blit(self.field_surface, (0, 0))
+        base_tile.draw(self.surface)
 
         return super().render(screen)

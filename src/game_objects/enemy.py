@@ -3,6 +3,9 @@ from random import randint
 
 import pygame
 
+BASE_DAMAGED = 2
+ENEMY_DAMAGE = 10
+ENEMY_MOVE = 75
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, path: list) -> None:
@@ -14,6 +17,7 @@ class Enemy(pygame.sprite.Sprite):
         self.status["hit_timer"] = 0
         self.status["dying"] = False
         self.status["dying_timer"] = 10
+        self.status["in_base"] = False
 
         self.images = {}
         self.image = None
@@ -41,6 +45,8 @@ class Enemy(pygame.sprite.Sprite):
         self._update_timers()
         self._move()
         self._update_image()
+        if self.status["in_base"]:
+            self._damage_base()
         if self.status["dying"]:
             self.image = self.images["dying"]
             self.status["dying_timer"] -= 1
@@ -53,7 +59,7 @@ class Enemy(pygame.sprite.Sprite):
 
         else:
             self.status["move_timer"] += 1
-            if self.status["move_timer"] >= 75:
+            if self.status["move_timer"] >= ENEMY_MOVE:
                 self.status["move_timer"] = 0
 
         if self.status["hit_timer"] > 0:
@@ -78,9 +84,16 @@ class Enemy(pygame.sprite.Sprite):
             self._update_image()
 
     def _move(self) -> None:
-        if self.status["move_timer"] == 0 and self.pos_on_path < len(self.path) - 1:
-            self.pos_on_path += 1
-            self._update_pos()
+        if self.pos_on_path < len(self.path) - 1:
+            if self.status["move_timer"] == 0: 
+                self.pos_on_path += 1
+                self._update_pos()
+        else:
+            self.status["in_base"] = True
+
+    def _damage_base(self):
+        pygame.event.post(pygame.event.Event(pygame.USEREVENT, custom_type=BASE_DAMAGED, damage=ENEMY_DAMAGE))
+        self.kill()
 
     def _update_pos(self) -> None:
         self.x = self.path[self.pos_on_path][0]

@@ -1,13 +1,15 @@
 import pygame
-from game_objects.tower import Tower
 from game_objects.field import Field
+from game_objects.tiles import BaseTile
+from game_objects.tower import Tower
 from ui.buttons import TowerButton
 
 from logic.tower_placement import TowerPlacer
 from logic.tower_shooting import TowerShooter
 
 TOWER_FIRE = 1
-
+BASE_DAMAGED = 2
+GAME_OVER = 3
 
 class EventHandler():
     def __init__(self):
@@ -38,6 +40,12 @@ class EventHandler():
             elif event.type == pygame.USEREVENT:
                 if event.custom_type == TOWER_FIRE:
                     self.tower_shooter.fire_tower(event.tower, enemies)
+
+                elif event.custom_type == BASE_DAMAGED:
+                    field.update(base_damage = event.damage)
+                
+                elif event.custom_type == GAME_OVER:
+                    scene_data["game_over"] = True
 
         if self.mouse_down:
             mouse_pos = pygame.mouse.get_pos()

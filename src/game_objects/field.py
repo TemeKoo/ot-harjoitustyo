@@ -35,8 +35,12 @@ class Field():
                         new_tile = PathTile(new_x, new_y, new_x*self.side_length, new_y*self.side_length)
                     elif tile_number == 2:
                         new_tile = BaseTile(new_x, new_y, new_x*self.side_length, new_y*self.side_length)
+                        self.base_tile = new_tile
                     new_tile.scale(self.side_length)
                     self.tiles.add(new_tile)
+
+    def update(self, base_damage: int = None) -> None:
+        self.tiles.update(damage = base_damage)
 
     def scale(self, side_length: int) -> None:
         self.side_length = side_length
@@ -45,6 +49,10 @@ class Field():
     def get_tiles(self) -> pygame.sprite.Group:
         """Returns the tiles of the field."""
         return self.tiles
+    
+    def get_base_tile(self) -> BaseTile:
+        """Returns the base tile of the field."""
+        return self.base_tile
 
     def get_image_size(self) -> tuple:
         """Returns the size of the field in a tuple in the form of (width, height)."""

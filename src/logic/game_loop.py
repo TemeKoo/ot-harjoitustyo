@@ -26,7 +26,9 @@ class GameLoop():
             "enemies": pygame.sprite.Group(),
             "buttons": pygame.sprite.Group(),
             "field": Field(1, self.loader),
-            "loader": self.loader
+            "loader": self.loader,
+            "game_over": False,
+            "game_over_displayed": False
         }
 
         self.renderer = Renderer(screen, self.scene_data)
@@ -44,12 +46,19 @@ class GameLoop():
     def loop(self):
         while self.running:
             self.running = self.event_handler.handle_events(self.scene_data)
-            self.scene_data["enemies"].update()
-            self.scene_data["towers"].update(try_fire=True)
-            if len(self.scene_data["enemies"]) == 0:
-                self.spawn_enemy()
+            if not self.scene_data["game_over"]:
+                self.scene_data["enemies"].update()
+                self.scene_data["towers"].update(try_fire=True)
+                self.scene_data["field"].update()
+                if len(self.scene_data["enemies"]) == 0:
+                    self.spawn_enemy()
+            elif not self.scene_data["game_over_displayed"]:
+                self.game_over()
             self.renderer.render(self.scene_data)
             self.clock.tick(self.fps)
+
+    def game_over(self) -> None:
+        self.renderer.set_game_over()
 
     def run(self):
         if not self.running:
