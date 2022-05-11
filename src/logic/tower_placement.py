@@ -1,6 +1,7 @@
 import pygame
 from game_objects.field import Field
 from game_objects.tiles import GenericTile
+from game_objects.tiles import BuildableTile
 
 
 class MousePoint(pygame.sprite.Sprite):
@@ -16,10 +17,11 @@ class TowerPlacer():
             MousePoint(mouse_x, mouse_y), field.get_tiles(), False)
         if len(colliding_tiles) > 0:
             colliding_tile: GenericTile = colliding_tiles[0]
-            pos = colliding_tile.get_img_pos()
-            on_tile = True
-            tile_pos = colliding_tile.get_pos()
-            towers.update(pos=pos, on_tile=on_tile, tile_pos=tile_pos)
+            if isinstance(colliding_tile, BuildableTile):
+                pos = colliding_tile.get_img_pos()
+                on_tile = True
+                tile_pos = colliding_tile.get_pos()
+                towers.update(pos=pos, on_tile=on_tile, tile_pos=tile_pos)
         else:
             pos = mouse_pos
             on_tile = False

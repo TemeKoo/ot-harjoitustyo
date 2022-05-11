@@ -12,7 +12,7 @@ class Tower(pygame.sprite.Sprite):
         super().__init__()
 
         self.status = {
-            "firing_cooldown": 0,
+            "cooldown": 0,
             "firing_effect_timer": 0,
             "firing": False
         }
@@ -68,11 +68,13 @@ class Tower(pygame.sprite.Sprite):
             self.status["firing"] = True
             self._update_image()
 
-        elif try_fire and self.on_tile:
-            self.timer += 1
-            if self.timer >= 30:
-                self.timer = 0
+        elif try_fire:
+            if self.status["cooldown"] > 0:
+                self.status["cooldown"] -= 1
+            elif self.on_tile:
+                self.status["cooldown"] = 30
                 pygame.event.post(pygame.event.Event(pygame.USEREVENT, custom_type=TOWER_FIRE, tower=self))
+
             if self.fire_timer > 0:
                 self.fire_timer -= 1
                 if self.fire_timer == 0:
