@@ -22,4 +22,5 @@
 | 24.04. |   2    | Aaltojen lisäys dataan, pylint virheiden korjailua     |
 | 24.04. |   1    | Bugin korjaus, lisää testejä                           |
 | 25.04. |   3    | Skaalaus toiminnallisuutta jota ei vielä käytetä       |
-|        | **34** | **Yhteensä**                                           |
+| 11.05. |   2    | Korjauksia, ja pelin voi nyt hävitä!                   |
+|        | **36** | **Yhteensä**                                           |
