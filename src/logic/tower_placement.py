@@ -5,13 +5,24 @@ from game_objects.tiles import BuildableTile
 
 
 class MousePoint(pygame.sprite.Sprite):
+    """Class to help with mouse collision."""
+
     def __init__(self, x, y):
         super().__init__()
         self.rect = pygame.Rect(x, y, 1, 1)
 
 
 class TowerPlacer():
-    def place_towers(self, towers: pygame.sprite.Group, field: Field, mouse_pos: tuple):
+    """Handles tower placement."""
+
+    def place_towers(self, towers: pygame.sprite.Group, field: Field, mouse_pos: tuple) -> None:
+        """Moves towers.
+
+        Args:
+            towers (pygame.sprite.Group): All towers.
+            field (game_objects.field.Field): The current field.
+            mouse_pos (tuple): Position of the mouse.
+        """
         mouse_x, mouse_y = mouse_pos
         colliding_tiles = pygame.sprite.spritecollide(
             MousePoint(mouse_x, mouse_y), field.get_tiles(), False)

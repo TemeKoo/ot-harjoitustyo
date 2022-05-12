@@ -66,25 +66,27 @@ class Tower(pygame.sprite.Sprite):
         elif fire:
             self.fire_timer = 7
             self.status["firing"] = True
-            self._update_image()
+            self.__update_image()
 
         elif try_fire:
             if self.status["cooldown"] > 0:
                 self.status["cooldown"] -= 1
             elif self.on_tile:
                 self.status["cooldown"] = 30
-                pygame.event.post(pygame.event.Event(pygame.USEREVENT, custom_type=TOWER_FIRE, tower=self))
+                pygame.event.post(pygame.event.Event(
+                    pygame.USEREVENT, custom_type=TOWER_FIRE, tower=self))
 
             if self.fire_timer > 0:
                 self.fire_timer -= 1
                 if self.fire_timer == 0:
                     self.status["firing"] = False
-                    self._update_image()
+                    self.__update_image()
 
     def scale(self, side_length: int) -> None:
         for key, image in self.images.items():
-            self.images[key] = pygame.transform.scale(image, (side_length, side_length))
-        self._update_image()
+            self.images[key] = pygame.transform.scale(
+                image, (side_length, side_length))
+        self.__update_image()
         self.rect = self.image.get_rect()
 
     @property
@@ -99,7 +101,7 @@ class Tower(pygame.sprite.Sprite):
         self.rect.x = img_x
         self.rect.y = img_y
 
-    def _update_image(self) -> None:
+    def __update_image(self) -> None:
         if self.status["firing"]:
             self.image = self.images["firing"]
         else:
@@ -114,4 +116,4 @@ class Tower(pygame.sprite.Sprite):
         self.images["normal"] = pygame.image.load(image_path).convert()
         self.images["firing"] = pygame.image.load(firing_image_path).convert()
 
-        self._update_image()
+        self.__update_image()

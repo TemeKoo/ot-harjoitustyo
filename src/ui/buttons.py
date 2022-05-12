@@ -5,6 +5,8 @@ from game_objects.tower import Tower
 
 
 class GenericButton(pygame.sprite.Sprite):
+    """Generic button."""
+
     def __init__(self, x, y) -> None:
         super().__init__()
 
@@ -13,6 +15,8 @@ class GenericButton(pygame.sprite.Sprite):
 
 
 class TowerButton(GenericButton):
+    """Button that spawns towers."""
+
     def __init__(self, x, y):
         super().__init__(x, y)
 
@@ -25,11 +29,15 @@ class TowerButton(GenericButton):
         self.rect.x = self.x
         self.rect.y = self.y
 
-    def click(self, pos) -> Tower:
+    def click(self, pos: tuple) -> Tower:
+        """Run when the button is clicked.
+
+        Args:
+          pos (tuple): Position of the mouse that clicked the button.
+
+        Returns:
+            new_tower (game_objects.tower.Tower): A new tower.
+        """
         x, y = pos
         new_tower = Tower(x, y)
         return new_tower
-
-
-class MenuButton(GenericButton):
-    pass
