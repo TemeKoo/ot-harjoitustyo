@@ -23,4 +23,5 @@
 | 24.04. |   1    | Bugin korjaus, lisää testejä                           |
 | 25.04. |   3    | Skaalaus toiminnallisuutta jota ei vielä käytetä       |
 | 11.05. |   2    | Korjauksia, ja pelin voi nyt hävitä!                   |
-|        | **36** | **Yhteensä**                                           |
+| 12.05. |   2    | Siivousta, docstring ja lint                           |
+|        | **38** | **Yhteensä**                                           |
