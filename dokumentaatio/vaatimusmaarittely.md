@@ -1,4 +1,4 @@
-# Alustava vaatimusmäärittely
+# Vaatimusmäärittely
 
 ## Sovelluksen kuvaus
 
@@ -22,8 +22,8 @@ Sovelluksesta on tarkoitus tulla Tower Defense tyylinen peli, joka on toteutettu
 - [x] Puolustaminen tapahtuu torneilla, joita pelaaja voi rakentaa reitin ulkopuolelle.
 - [x] Kun pelaaja aloittaa pelin, vihollisia alkaa tulla aaltoina reitin toisesta päästä tukikohtaa päin
 - [x] Kun vihollinen on tornin kantaman sisällä, torni voi ampua ja vahingoittaa vihollista.
-- [ ] Jos vihollinen pääsee tukikohtaan asti, tukikohta vahingoittuu.
-- [ ] Pelaaja häviää tason, jos tukikohta tuhoutuu.
+- [x] Jos vihollinen pääsee tukikohtaan asti, tukikohta vahingoittuu.
+- [x] Pelaaja häviää tason, jos tukikohta tuhoutuu.
 - [ ] Pelaaja voittaa tason, jos hän saa päihitettyä kaikki vihollisaallot.
 
 ## Ideoita
