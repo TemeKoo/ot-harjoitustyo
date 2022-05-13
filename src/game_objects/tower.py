@@ -41,7 +41,7 @@ class Tower(GenericSprite):
     @property
     def fire_range(self):
         """The fire range of the tower in tiles.
-        
+
         Returns:
             fire_range (int)
         """
@@ -50,7 +50,7 @@ class Tower(GenericSprite):
     @property
     def damage(self):
         """The damage of the tower.
-        
+
         Returns:
             damage (int)
         """
@@ -76,28 +76,19 @@ class Tower(GenericSprite):
         self, pos: tuple = None, on_tile: bool = None,
         tile_pos: tuple = None, try_fire: bool = False,
         fire: bool = False
-        ) -> None:
+    ) -> None:
         """Override of the pygame update function.
 
         Args:
             pos (tuple): Used to move the tower when grabbed. Tuple (x, y). (Default value = None)
-            on_tile (bool): Used to specify if the tower is currently on a tile or not. If True, tile_pos is required. (Default value = None)
+            on_tile (bool): Used to specify if the tower is currently on a tile or not.
+            If True, tile_pos is required. (Default value = None)
             tile_pos (tuple): Used to specify the tile the tower is on. (Default value = None)
             try_fire (bool): Try to fire the tower. (Default value = False)
             fire (bool): Used when the tower was fired. (Default value = False)
         """
         if pos is not None and self.grabbed:
-            self.status["on_tile"] = on_tile
-            if on_tile:
-                x, y = tile_pos
-                img_x, img_y = pos
-            else:
-                x, y = -1, -1
-                mouse_x, mouse_y = pos
-                rel_x, rel_y = self.grabbed_rel
-                img_x = mouse_x + rel_x
-                img_y = mouse_y + rel_y
-            self.pos = x, y, img_x, img_y
+            self.__move(pos, on_tile, tile_pos)
 
         elif fire:
             self.status["firing_effect_timer"] = 7
@@ -129,6 +120,19 @@ class Tower(GenericSprite):
                 image, (side_length, side_length))
         self.__update_image()
         self.rect = self.image.get_rect()
+
+    def __move(self, pos: tuple, on_tile: bool, tile_pos: tuple) -> None:
+        self.status["on_tile"] = on_tile
+        if on_tile:
+            x, y = tile_pos
+            img_x, img_y = pos
+        else:
+            x, y = -1, -1
+            mouse_x, mouse_y = pos
+            rel_x, rel_y = self.grabbed_rel
+            img_x = mouse_x + rel_x
+            img_y = mouse_y + rel_y
+        self.pos = x, y, img_x, img_y
 
     @property
     def pos(self) -> tuple:
