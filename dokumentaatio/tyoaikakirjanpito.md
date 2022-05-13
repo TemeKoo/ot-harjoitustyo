@@ -25,4 +25,5 @@
 | 11.05. |   2    | Korjauksia, ja pelin voi nyt hävitä!                   |
 | 12.05. |   2    | Siivousta, docstring ja lint                           |
 | 13.05. |   2    | Pylint, docstring ja abstraktointia(?).                |
-|        | **40** | **Yhteensä**                                           |
+| 13.05. |   1    | Lisää testejä                                          |
+|        | **41** | **Yhteensä**                                           |
