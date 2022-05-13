@@ -2,11 +2,13 @@ import os
 
 import pygame
 
+from game_objects.sprite import GenericSprite
+
 GAME_OVER = 3
 BASE_HIT_TIMER = 12
 
 
-class GenericTile(pygame.sprite.Sprite):
+class GenericTile(GenericSprite):
     """Generic class to represent one tile of the playing field."""
 
     def __init__(self, x, y, img_x, img_y, image_name: str = None):
@@ -80,9 +82,13 @@ class BaseTile(GenericTile):
         self.status["health"] = 100
         self.status["hit_timer"] = 0
 
-        self.images = {}
-        self.image = None
-        self.__load_images()
+        images = {
+            "normal": ["tiles", "base.png"],
+            "hit": ["tiles", "base_hit.png"]
+        }
+
+        self.load_images(images)
+        self.__update_image()
 
         self.rect = self.image.get_rect()
         self.rect.x = img_x
@@ -127,14 +133,3 @@ class BaseTile(GenericTile):
             self.image = self.images["hit"]
         else:
             self.image = self.images["normal"]
-
-    def __load_images(self) -> None:
-        curdir = os.path.dirname(__file__)
-        image_path = os.path.join(curdir, "..", "assets", "tiles", "base.png")
-        hit_image_path = os.path.join(
-            curdir, "..", "assets", "tiles", "base_hit.png")
-
-        self.images["normal"] = pygame.image.load(image_path).convert()
-        self.images["hit"] = pygame.image.load(hit_image_path).convert()
-
-        self.__update_image()

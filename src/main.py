@@ -4,6 +4,7 @@ from logic.game_loop import GameLoop
 
 
 def main():
+    """Main function of the app."""
     pygame.init()
     pygame.display.set_caption("Tower Defense")
 

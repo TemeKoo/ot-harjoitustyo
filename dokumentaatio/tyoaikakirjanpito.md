@@ -24,4 +24,5 @@
 | 25.04. |   3    | Skaalaus toiminnallisuutta jota ei vielä käytetä       |
 | 11.05. |   2    | Korjauksia, ja pelin voi nyt hävitä!                   |
 | 12.05. |   2    | Siivousta, docstring ja lint                           |
-|        | **38** | **Yhteensä**                                           |
+| 13.05. |   2    | Pylint, docstring ja abstraktointia(?).                |
+|        | **40** | **Yhteensä**                                           |

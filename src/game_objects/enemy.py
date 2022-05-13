@@ -1,20 +1,20 @@
-import os
 from random import randint
 
 import pygame
+
+from game_objects.sprite import GenericSprite
 
 BASE_DAMAGED = 2
 ENEMY_DAMAGE = 10
 ENEMY_MOVE_COOLDOWN = 60
 
 
-class Enemy(pygame.sprite.Sprite):
+class Enemy(GenericSprite):
     """Represents a simple enemy."""
 
     def __init__(self, path: list) -> None:
         super().__init__()
 
-        self.status = {}
         self.status["move_timer"] = 1
         self.status["health"] = 100
         self.status["hit_timer"] = 0
@@ -22,9 +22,14 @@ class Enemy(pygame.sprite.Sprite):
         self.status["dying_timer"] = 10
         self.status["in_base"] = False
 
-        self.images = {}
-        self.image = None
-        self.__load_images()
+        images = {
+            "normal": ["enemy.png"],
+            "hit": ["enemy_hit.png"],
+            "dying": ["enemy_dying.png"]
+        }
+
+        self.load_images(images)
+        self.__update_image()
 
         self.rect = self.image.get_rect()
 
@@ -131,16 +136,3 @@ class Enemy(pygame.sprite.Sprite):
             self.image = self.images["hit"]
         else:
             self.image = self.images["normal"]
-
-    def __load_images(self) -> None:
-        curdir = os.path.dirname(__file__)
-        image_path = os.path.join(curdir, "..", "assets", "enemy.png")
-        hit_image_path = os.path.join(curdir, "..", "assets", "enemy_hit.png")
-        dying_image_path = os.path.join(
-            curdir, "..", "assets", "enemy_dying.png")
-
-        self.images["normal"] = pygame.image.load(image_path).convert()
-        self.images["hit"] = pygame.image.load(hit_image_path).convert()
-        self.images["dying"] = pygame.image.load(dying_image_path).convert()
-
-        self.__update_image()
